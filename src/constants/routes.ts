@@ -4,4 +4,6 @@ export enum Routes {
   login = '/login',
   adminHome = '/admin',
   adminLogin = '/admin/login',
+  signup = '/signup',
+  forget = '/forgetpassword'
 }

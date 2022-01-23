@@ -4,6 +4,8 @@ import { AdminRoute, PrivateRoute, PublicRoute } from 'routes'
 import { Routes as ROUTES } from 'constants/routes'
 
 import UserLogin from './Public/UserLogin'
+import UserSignUp from './Public/UserSignUp'
+import UserForgetPassword from './Public/UserForgotPassword'
 import UserHome from './User/Home'
 import AdminHome from './Admin/Home'
 
@@ -12,7 +14,11 @@ const Pages = () => {
     <BrowserRouter>
       <Routes>
         {/* Public routes */}
+        <Route path={ROUTES.signup} element={<PublicRoute component={UserSignUp} />} />
+
         <Route path={ROUTES.login} element={<PublicRoute component={UserLogin} />} />
+        
+        <Route path={ROUTES.forget} element={<PublicRoute component={UserForgetPassword} />} />
 
         {/* Private routes */}
         <Route path={ROUTES.index} element={<PrivateRoute component={UserHome} />} />
