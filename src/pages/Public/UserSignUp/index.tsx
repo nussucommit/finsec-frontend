@@ -2,7 +2,6 @@ import {Formik ,Form,Field} from 'formik';
 
 import request from 'api/request';
 
-
    interface MyFormValues {
     UserName: string;
     Password: string;
