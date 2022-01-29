@@ -11,8 +11,6 @@ interface MyFormValues {
     Password: string;
     
 }
-
-
 const UserLogin = () => {
     const loginURL = "";
     const initialValues: MyFormValues = {UserName:'',Password:'' };

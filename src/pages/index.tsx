@@ -17,7 +17,7 @@ const Pages = () => {
         <Route path={ROUTES.signup} element={<PublicRoute component={UserSignUp} />} />
 
         <Route path={ROUTES.login} element={<PublicRoute component={UserLogin} />} />
-        
+
         <Route path={ROUTES.forget} element={<PublicRoute component={UserForgetPassword} />} />
 
         {/* Private routes */}

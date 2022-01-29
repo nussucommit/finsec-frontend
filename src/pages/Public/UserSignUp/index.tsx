@@ -1,10 +1,9 @@
 import {Formik ,Form,Field} from 'formik';
-import axios from 'axios';
-import useRequest from 'api/swr';
+
 import request from 'api/request';
 
 
-interface MyFormValues {
+   interface MyFormValues {
     UserName: string;
     Password: string;
 }
