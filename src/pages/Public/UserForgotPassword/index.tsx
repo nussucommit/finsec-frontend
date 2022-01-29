@@ -3,9 +3,10 @@ import { Formik, Form, Field, FormikHelpers } from 'formik'
 import * as yup from 'yup'
 
 // 2. utility files
-import request from 'api/request'
+import { forgetPassword } from 'api/auth'
 
 // 3. components
+import { Input } from 'components/Form'
 
 // 4. css
 // import styles from ...
@@ -15,27 +16,29 @@ interface Values {
 }
 
 const UserForgotPassword = () => {
-  const loginURL = ''
   const initialValues: Values = { email: '' }
 
   const validationSchema: yup.SchemaOf<Values> = yup.object({
     email: yup.string().required('Required'),
   })
 
+  const handleForgetPassword = (values: Values, formikHelpers: FormikHelpers<Values>) => {
+    console.log({ values, formikHelpers })
+    forgetPassword({ email: values.email })
+    formikHelpers.setSubmitting(false)
+  }
+
   return (
     <div>
       <h1>Forgot Password</h1>
       <Formik
         initialValues={initialValues}
-        onSubmit={(values: Values, formikHelpers: FormikHelpers<Values>) => {
-          console.log({ values, formikHelpers })
-          request.post(loginURL, { email: values.email })
-        }}
+        onSubmit={handleForgetPassword}
         validationSchema={validationSchema}
       >
         <Form>
-          <label htmlFor="email">UserName</label>
-          <Field id="email" name="email" placeholder="email" />
+          <label htmlFor="email">Email</label>
+          <Input id="email" name="email" placeholder="email" />
           <button type="submit">Submit</button>
         </Form>
       </Formik>
