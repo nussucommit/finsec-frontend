@@ -1,4 +1,4 @@
-import { Formik, Form, Field, FormikHelpers } from 'formik'
+import { Formik, Form, FormikHelpers } from 'formik'
 import * as yup from 'yup'
 
 import { signup } from "api/auth";
@@ -36,7 +36,9 @@ const UserSignUp = () => {
         validationSchema={validationSchema}
       >
         <Form>
-          <Input id="UserName" name="UserName"  placeholder="UserName" />
+          <label htmlFor="UserName">UserName</label>
+          <Input id="UserName" name="UserName" placeholder="UserName" />
+          <label htmlFor="Password">Password</label>
           <Input id="Password" name="Password" placeholder="Password" />
           <button type="submit">Submit</button>
         </Form>

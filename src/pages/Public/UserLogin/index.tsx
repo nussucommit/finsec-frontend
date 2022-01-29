@@ -2,9 +2,9 @@ import { Formik, Form, Field, FormikHelpers } from 'formik'
 import * as yup from 'yup'
 
 import { Link } from 'react-router-dom'
-import useAuth from 'hooks/useAuth'
 import { Routes } from 'constants/routes'
 import { login } from 'api/auth'
+import useAuth from 'hooks/useAuth'
 import history from 'utils/history'
 
 import { Input } from 'components/Form'

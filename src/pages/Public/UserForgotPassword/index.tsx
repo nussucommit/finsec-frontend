@@ -25,7 +25,7 @@ const UserForgotPassword = () => {
   const handleForgetPassword = (values: Values, formikHelpers: FormikHelpers<Values>) => {
     console.log({ values, formikHelpers })
     forgetPassword({ email: values.email })
-    formikHelpers.setSubmitting(false)
+    formikHelpers.setSubmitting(false)  
   }
 
   return (
