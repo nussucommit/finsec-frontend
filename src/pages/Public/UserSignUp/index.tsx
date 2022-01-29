@@ -1,8 +1,9 @@
 import {Formik ,Form,Field} from 'formik';
+import * as yup from 'yup'
 
 import request from 'api/request';
 
-   interface MyFormValues {
+   interface Values {
     UserName: string;
     Password: string;
 }
@@ -10,28 +11,33 @@ import request from 'api/request';
 const signUpURL = "/signup";
 
 const UserSignUp = () => {
-    const initialValues: MyFormValues = {UserName:'',Password:'' };
+    const initialValues: Values = {UserName:'',Password:'' };
+    const validationSchema: yup.SchemaOf<Values> = yup.object({
+      UserName: yup.string().required('Required'),
+      Password: yup.string().required('Required'),
+    })
     
 
     return (
-    <div>
-        <h1 >USER SIGNUP</h1> 
+      <div>
+        <h1>USER SIGNUP</h1>
         <Formik
-         initialValues={initialValues}
-         onSubmit={(values, actions) => {
-           console.log({ values, actions });
-           request.post(signUpURL,{"username":values.UserName,"password":values.Password});
-         }}
-         >
-         <Form>
-           <label htmlFor="UserName">UserName</label>
-           <Field id="UserName" name="UserName" placeholder="UserName" />
-           <label htmlFor="Password">Password</label>
-           <Field id="Password" name="Password" placeholder="Password" />
-           <button type="submit">Submit</button>
-         </Form>
-       </Formik>
-    </div>
+          initialValues={initialValues}
+          onSubmit={(values, actions) => {
+            console.log({ values, actions })
+            request.post(signUpURL, { username: values.UserName, password: values.Password })
+          }}
+          validationSchema={validationSchema}
+        >
+          <Form>
+            <label htmlFor="UserName">UserName</label>
+            <Field id="UserName" name="UserName" placeholder="UserName" />
+            <label htmlFor="Password">Password</label>
+            <Field id="Password" name="Password" placeholder="Password" />
+            <button type="submit">Submit</button>
+          </Form>
+        </Formik>
+      </div>
     )
     
 

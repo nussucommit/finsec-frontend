@@ -1,4 +1,5 @@
 import { Formik, Form, Field, FormikHelpers } from 'formik'
+import * as yup from 'yup'
 
 import { Link } from 'react-router-dom'
 import styles from './UserLogin.module.css'
@@ -17,6 +18,10 @@ const UserLogin = () => {
   const initialValues: Values = { UserName: '', Password: '' }
 
   // validation schema
+  const validationSchema: yup.SchemaOf<Values> = yup.object({
+    UserName: yup.string().required('Required'),
+    Password: yup.string().required('Required'),
+  })
 
   const { userLogin } = useAuth()
 
@@ -32,7 +37,7 @@ const UserLogin = () => {
   return (
     <div>
       <h1 className={styles.test}>USER LOGIN</h1>
-      <Formik initialValues={initialValues} onSubmit={handleLogin}>
+      <Formik initialValues={initialValues} onSubmit={handleLogin} validationSchema={validationSchema}>
         <Form>
           <label htmlFor="UserName">UserName</label>
           <Field id="UserName" name="UserName" placeholder="UserName" />
