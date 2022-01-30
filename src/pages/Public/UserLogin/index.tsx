@@ -44,7 +44,7 @@ const UserLogin = () => {
       <Formik initialValues={initialValues} onSubmit={handleLogin} validationSchema={validationSchema}>
         <Form>
           <label htmlFor="username">UserName</label>
-          <Input id="username" name="UserName" placeholder="UserName" />
+          <Input id="username" name="username" placeholder="UserName" />
           <label htmlFor="password">Password</label>
           <Input id="password" name="password" placeholder="Password" />
           <button type="submit">Submit</button>
