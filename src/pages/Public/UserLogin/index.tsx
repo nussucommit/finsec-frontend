@@ -7,21 +7,21 @@ import { login } from 'api/auth'
 import useAuth from 'hooks/useAuth'
 import history from 'utils/history'
 
-import { Input } from 'components/Form'
+import { Input } from 'components/Form' 
 
 import styles from './UserLogin.module.css'
 
 interface Values {
-  UserName: string
-  Password: string
+  username: string
+  password: string
 }
 const UserLogin = () => {
-  const initialValues: Values = { UserName: '', Password: '' }
+  const initialValues: Values = { username: '', password: '' }
 
   // validation schema
   const validationSchema: yup.SchemaOf<Values> = yup.object({
-    UserName: yup.string().required('Required'),
-    Password: yup.string().required('Required'),
+    username: yup.string().required('Required'),
+    password: yup.string().required('Required'),
   })
 
   const { userLogin } = useAuth()
@@ -30,8 +30,8 @@ const UserLogin = () => {
     console.log({ values, formikHelpers })
     // Change to async await syntax
     const { data: token } = await login({
-      username: values.UserName.toLowerCase(),
-      password: values.Password,
+      username: values.username.toLowerCase(),
+      password: values.password,
     })
     userLogin(token);
     formikHelpers.setSubmitting(false);
@@ -43,10 +43,10 @@ const UserLogin = () => {
       <h1 className={styles.test}>USER LOGIN</h1>
       <Formik initialValues={initialValues} onSubmit={handleLogin} validationSchema={validationSchema}>
         <Form>
-          <label htmlFor="UserName">UserName</label>
-          <Input id="UserName" name="UserName" placeholder="UserName" />
-          <label htmlFor="Password">Password</label>
-          <Input id="Password" name="Password" placeholder="Password" />
+          <label htmlFor="username">UserName</label>
+          <Input id="username" name="UserName" placeholder="UserName" />
+          <label htmlFor="password">Password</label>
+          <Input id="password" name="password" placeholder="Password" />
           <button type="submit">Submit</button>
         </Form>
       </Formik>

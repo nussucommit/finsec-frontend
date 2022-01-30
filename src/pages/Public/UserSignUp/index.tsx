@@ -1,28 +1,27 @@
 import { Formik, Form, FormikHelpers } from 'formik'
 import * as yup from 'yup'
 
-import { signup } from "api/auth";
+import { signup } from 'api/auth'
 import history from 'utils/history'
 
 import { Input } from 'components/Form'
 
-
 interface Values {
-  UserName: string
-  Password: string
+  username: string
+  password: string
 }
 
 const UserSignUp = () => {
-  const initialValues: Values = { UserName: '', Password: '' }
+  const initialValues: Values = { username: '', password: '' }
 
   const validationSchema: yup.SchemaOf<Values> = yup.object({
-    UserName: yup.string().required('Required'),
-    Password: yup.string().required('Required'),
+    username: yup.string().required('Required'),
+    password: yup.string().required('Required'),
   })
 
   const handleSignup = (values: Values, formikHelpers: FormikHelpers<Values>) => {
     console.log({ values, formikHelpers })
-    signup({username: values.UserName,password: values.Password});
+    signup({ username: values.username, password: values.password })
     formikHelpers.setSubmitting(false)
     history.push('/login')
   }
@@ -30,16 +29,12 @@ const UserSignUp = () => {
   return (
     <div>
       <h1>USER SIGNUP</h1>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={handleSignup}
-        validationSchema={validationSchema}
-      >
+      <Formik initialValues={initialValues} onSubmit={handleSignup} validationSchema={validationSchema}>
         <Form>
-          <label htmlFor="UserName">UserName</label>
-          <Input id="UserName" name="UserName" placeholder="UserName" />
-          <label htmlFor="Password">Password</label>
-          <Input id="Password" name="Password" placeholder="Password" />
+          <label htmlFor="username">UserName</label>
+          <Input id="username" name="username" placeholder="UserName" />
+          <label htmlFor="password">Password</label>
+          <Input id="password" name="password" placeholder="Password" />
           <button type="submit">Submit</button>
         </Form>
       </Formik>
