@@ -5,5 +5,6 @@ export enum Routes {
   adminHome = '/admin',
   adminLogin = '/admin/login',
   signup = '/signup',
-  forget = '/forgetpassword'
+  forget = '/forgetpassword',
+  verify = '/verify/:uid',
 }
