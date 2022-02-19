@@ -10,9 +10,13 @@ export const signup = (data: { username: string; password: string }) => {
   return request.post("/signup", data);
 };
 
-export const forgetPassword = (data: { email: string}) => {
+export const forgetPassword = (data: {email: string}) => {
   return request.post("/forgetpassword", data);
 };
+
+export const confirmEmail = (data:{code:string}) => {
+  return request.post("/confirmEmail",data)
+}
 /*
 boiler plate from evoucher front end may use in the future
 export const logout = (data: { refresh_token: string }) =>
