@@ -6,6 +6,7 @@ import { Routes as ROUTES } from 'constants/routes'
 import UserLogin from './Public/UserLogin'
 import UserSignUp from './Public/UserSignUp'
 import UserForgetPassword from './Public/UserForgotPassword'
+import CreateForm from './Public/CreateForm'
 import UserHome from './User/Home'
 import AdminHome from './Admin/Home'
 
@@ -19,6 +20,9 @@ const Pages = () => {
         <Route path={ROUTES.login} element={<PublicRoute component={UserLogin} />} />
 
         <Route path={ROUTES.forget} element={<PublicRoute component={UserForgetPassword} />} />
+
+        {/* temporary */}
+        <Route path={ROUTES.createForm} element={<PublicRoute component={CreateForm} />} /> 
 
         {/* Private routes */}
         <Route path={ROUTES.index} element={<PrivateRoute component={UserHome} />} />
