@@ -13,6 +13,18 @@ export const signup = (data: { username: string; password: string }) => {
 export const forgetPassword = (data: { email: string}) => {
   return request.post("/forgetpassword", data);
 };
+
+export const createForm = (data: { 
+  Event_Name: string;
+  Item_Description: string;
+  Item_Quantity: number;
+  Student_Name: string;
+  Obtained_Date: Date;
+  Student_Conctact_Number: number;
+  Supplier: string
+ }) => {
+  return request.post("/createform", data);
+ }
 /*
 boiler plate from evoucher front end may use in the future
 export const logout = (data: { refresh_token: string }) =>
