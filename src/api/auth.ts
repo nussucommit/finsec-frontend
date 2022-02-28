@@ -14,8 +14,13 @@ export const forgetPassword = (data: {email: string}) => {
   return request.post("/forgetpassword", data);
 };
 
-export const confirmEmail = (data:{code:string}) => {
+export const confirmEmail = (data:{uid:string}) => {
   return request.post("/confirmEmail",data)
+}
+
+
+export const verificationEmail = (data:{uid:string}) => {
+  return request.post("/verifyEmail",data)
 }
 /*
 boiler plate from evoucher front end may use in the future
