@@ -1,7 +1,7 @@
 import { Formik, Form, FormikHelpers } from 'formik'
 import * as yup from 'yup'
 
-import { createForm } from 'api/auth'
+import { createForm } from 'api/quotation'
 import history from 'utils/history'
 
 import { Input } from 'components/Form'
@@ -45,7 +45,7 @@ const CreateForm = () => {
             Item_Quantity: values.Item_Quantity,
             Student_Name: values.Student_Name,
             Obtained_Date: values.Obtained_Date,
-            Student_Conctact_Number: values.Student_Contact_No,
+            Student_Contact_No: values.Student_Contact_No,
             Supplier: values.Supplier
         })
         formikHelpers.setSubmitting(false)
