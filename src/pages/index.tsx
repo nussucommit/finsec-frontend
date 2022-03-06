@@ -23,6 +23,7 @@ const Pages = () => {
 
         {/* temporary */}
         <Route path={ROUTES.createForm} element={<PublicRoute component={CreateForm} />} /> 
+        <Route path={ROUTES.userHome} element={<PublicRoute component={UserHome} />} /> 
 
         {/* Private routes */}
         <Route path={ROUTES.index} element={<PrivateRoute component={UserHome} />} />
