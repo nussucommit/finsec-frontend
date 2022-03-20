@@ -7,4 +7,5 @@ export enum Routes {
   signup = '/signup',
   forget = '/forgetpassword',
   verify = '/verify/:uid',
+  
 }

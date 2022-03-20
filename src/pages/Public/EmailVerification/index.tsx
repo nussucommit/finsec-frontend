@@ -1,6 +1,8 @@
 // 1. external libraries
 import { useParams } from 'react-router-dom'
 import { confirmEmail } from 'api/auth'
+import { useEffect } from 'react'
+
 
 // 2. utility files
 
@@ -11,15 +13,22 @@ import Button from 'components/Button'
 // import styles from ...
 
 const EmailVerification = () => {
-  const id = useParams().id!
+  const id = useParams().uid!
 
   const handleConfirmEmail = async () => {
-    await confirmEmail({
+    try{
+      console.log(id);
+      await confirmEmail({
       uid: id,
     })
-  }
+    }
+    catch{
 
-  handleConfirmEmail();
+    }
+  }
+  useEffect(() => {
+    handleConfirmEmail()
+  }, [])
 
   return (
     <div>

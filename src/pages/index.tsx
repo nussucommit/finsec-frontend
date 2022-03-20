@@ -6,8 +6,9 @@ import { Routes as ROUTES } from 'constants/routes'
 import UserLogin from './Public/UserLogin'
 import UserSignUp from './Public/UserSignUp'
 import UserForgetPassword from './Public/UserForgotPassword'
-import UserHome from './User/Home'
+import Home from './User/Home'
 import AdminHome from './Admin/Home'
+import EmailVerification from './Public/EmailVerification'
 
 
 const Pages = () => {
@@ -21,8 +22,12 @@ const Pages = () => {
 
         <Route path={ROUTES.forget} element={<PublicRoute component={UserForgetPassword} />} />
 
+        <Route path={ROUTES.verify} element={<PublicRoute component={EmailVerification} />} />
+
+        <Route path={ROUTES.index} element={<PublicRoute component={Home} />} />
+
         {/* Private routes */}
-        <Route path={ROUTES.index} element={<PrivateRoute component={UserHome} />} />
+        <Route path={ROUTES.index} element={<PrivateRoute component={Home} />} />
 
         {/* Admin routes */}
         <Route path={ROUTES.adminHome} element={<AdminRoute component={AdminHome} />} />

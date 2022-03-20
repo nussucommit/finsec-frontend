@@ -5,18 +5,15 @@ import SendEmail from '../SendEmail'
 
 const Home = () => {
     const {data : verifyUser} = useVerifyUser(); 
-    if(verifyUser?.verified == true){
+    if (verifyUser?.verified == true) {
       return (
-      <div>
-        <MainPage/>
-      </div>
-      
-      );
+        <div>
+          <MainPage />
+        </div>
+      )
     }
-    
-    return <SendEmail />
+    return <SendEmail/>
 
-    
 
 }
 
