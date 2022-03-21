@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom'
 import { confirmEmail } from 'api/auth'
 import { useEffect } from 'react'
 
-
 // 2. utility files
 
 // 3. components
@@ -16,15 +15,12 @@ const EmailVerification = () => {
   const id = useParams().uid!
 
   const handleConfirmEmail = async () => {
-    try{
-      console.log(id);
+    try {
+      console.log(id)
       await confirmEmail({
-      uid: id,
-    })
-    }
-    catch{
-
-    }
+        uid: id,
+      })
+    } catch {}
   }
   useEffect(() => {
     handleConfirmEmail()

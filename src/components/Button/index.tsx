@@ -1,20 +1,19 @@
 import React, { ButtonHTMLAttributes } from 'react'
 
-interface Props 
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "type" | "htmlType"> {
-  id?: string;
-  block?: boolean;
-  children?: React.ReactNode;
-  className?: string;
-  disabled?: boolean;
-  htmlType?: "reset" | "submit";
-  onClick?: () => void;
-  size?: "small" | "large";
-  icon?: React.ReactNode;
-  type?: "danger" | "success" | "outlined" | "text" | "primary" | "secondary";
-  vCenter?: boolean;
-  isSubmit?: boolean;
-  isLoading?: boolean;
+interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'htmlType'> {
+  id?: string
+  block?: boolean
+  children?: React.ReactNode
+  className?: string
+  disabled?: boolean
+  htmlType?: 'reset' | 'submit'
+  onClick?: () => void
+  size?: 'small' | 'large'
+  icon?: React.ReactNode
+  type?: 'danger' | 'success' | 'outlined' | 'text' | 'primary' | 'secondary'
+  vCenter?: boolean
+  isSubmit?: boolean
+  isLoading?: boolean
 }
 
 export const Button = ({
@@ -30,9 +29,9 @@ export const Button = ({
 }: Props) => {
   return (
     <button {...buttonProps} disabled={Boolean(disabled)} type={isSubmit ? 'submit' : 'button'}>
-        {children}
+      {children}
     </button>
   )
 }
 
-export default Button;
+export default Button

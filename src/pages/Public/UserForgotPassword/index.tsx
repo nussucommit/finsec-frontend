@@ -9,7 +9,7 @@ import { forgetPassword } from 'api/auth'
 import { Input } from 'components/Form'
 
 // 4. css
-// import styles from ... 
+// import styles from ...
 
 interface Values {
   email: string
@@ -25,17 +25,13 @@ const UserForgotPassword = () => {
   const handleForgetPassword = (values: Values, formikHelpers: FormikHelpers<Values>) => {
     console.log({ values, formikHelpers })
     forgetPassword({ email: values.email })
-    formikHelpers.setSubmitting(false)  
+    formikHelpers.setSubmitting(false)
   }
 
   return (
     <div>
       <h1>Forgot Password</h1>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={handleForgetPassword}
-        validationSchema={validationSchema}
-      >
+      <Formik initialValues={initialValues} onSubmit={handleForgetPassword} validationSchema={validationSchema}>
         <Form>
           <label htmlFor="email">Email</label>
           <Input id="email" name="email" placeholder="email" />

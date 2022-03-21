@@ -10,7 +10,6 @@ import Home from './User/Home'
 import AdminHome from './Admin/Home'
 import EmailVerification from './Public/EmailVerification'
 
-
 const Pages = () => {
   return (
     <BrowserRouter>
