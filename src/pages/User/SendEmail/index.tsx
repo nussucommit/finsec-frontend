@@ -2,7 +2,7 @@ import { useVerifyUser } from 'api/user'
 import { useEffect } from 'react'
 import { verificationEmail } from 'api/auth'
 
-import Button from 'components/Button'
+import Button from '@chakra-ui/react'
 
 const SendEmail = () => {
   const { data: verifyUser } = useVerifyUser()

@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 // 2. utility files
 
 // 3. components
-import Button from 'components/Button'
+import Button from '@chakra-ui/react'
 
 // 4. css
 // import styles from ...
